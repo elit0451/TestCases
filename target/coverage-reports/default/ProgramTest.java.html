@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ProgramTest.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">jacoco-unit.exec</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">ProgramTest.java</span></div><h1>ProgramTest.java</h1><pre class="source lang-java linenums">import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+<span class="nc" id="L6">public class ProgramTest {</span>
+    Program myProgram;
+
+    @Before
+    public void setUp() {
+<span class="nc" id="L11">        myProgram = new Program();</span>
+<span class="nc" id="L12">    }</span>
+
+    @Test
+    public void testWith0Numbers() {
+
+        // set
+<span class="nc" id="L18">        String[] emptyArray = {};</span>
+<span class="nc" id="L19">        int[] resultArray = {};</span>
+
+        try {
+            // execute
+<span class="nc" id="L23">            resultArray = myProgram.main(emptyArray);</span>
+<span class="nc" id="L24">        }catch (Exception e) {</span>
+            // verify
+<span class="nc bnc" id="L26" title="All 2 branches missed.">            assertTrue(e.getClass() == IllegalArgumentException.class);</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">            assertTrue(resultArray.length == 0);</span>
+<span class="nc" id="L28">        }</span>
+<span class="nc" id="L29">    }</span>
+
+    @Test
+    public void testWith1Number() {
+
+        // set
+<span class="nc" id="L35">        String[] oneElmArray = {&quot;17&quot;};</span>
+<span class="nc" id="L36">        int[] resultArray = {17, 17};</span>
+
+        // execute
+<span class="nc" id="L39">        int[] actualResult = myProgram.main(oneElmArray);</span>
+
+        // verify
+<span class="nc" id="L42">        assertArrayEquals(resultArray, actualResult);</span>
+<span class="nc" id="L43">    }</span>
+
+    @Test
+    public void testWith2Numbers() {
+
+        // set
+<span class="nc" id="L49">        String[] oneElmArray = {&quot;17&quot;, &quot;19&quot;};</span>
+<span class="nc" id="L50">        int[] resultArray = {17, 19};</span>
+
+        // execute
+<span class="nc" id="L53">        int[] actualResult = myProgram.main(oneElmArray);</span>
+
+        // verify
+<span class="nc" id="L56">        assertArrayEquals(resultArray, actualResult);</span>
+<span class="nc" id="L57">    }</span>
+
+    @Test
+    public void testWithMoreNumbers() {
+
+        // set
+<span class="nc" id="L63">        String[] oneElmArray = {&quot;17&quot;, &quot;19&quot;, &quot;12&quot;, &quot;24&quot;};</span>
+<span class="nc" id="L64">        int[] resultArray = {12, 24};</span>
+
+        // execute
+<span class="nc" id="L67">        int[] actualResult = myProgram.main(oneElmArray);</span>
+
+        // verify
+<span class="nc" id="L70">        assertArrayEquals(resultArray, actualResult);</span>
+<span class="nc" id="L71">    }</span>
+
+    @Test
+    public void testWithEqualNumbers() {
+
+        // set
+<span class="nc" id="L77">        String[] oneElmArray = {&quot;17&quot;, &quot;12&quot;, &quot;33&quot;, &quot;12&quot;};</span>
+<span class="nc" id="L78">        int[] resultArray = {12, 33};</span>
+
+        // execute
+<span class="nc" id="L81">        int[] actualResult = myProgram.main(oneElmArray);</span>
+
+        // verify
+<span class="nc" id="L84">        assertArrayEquals(resultArray, actualResult);</span>
+<span class="nc" id="L85">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
